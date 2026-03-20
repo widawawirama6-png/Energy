@@ -48,25 +48,20 @@ color:green;
 
 <script>
 
-let score=0;
+<script>
 
-function answer(selected,correct){
+let params = new URLSearchParams(window.location.search);
 
-if(selected===correct){
-score++;
-alert("Correct ✅");
-}else{
-alert("Wrong ❌");
-}
+let file = params.get("file");
+let title = params.get("title");
 
-}
+document.getElementById("pdfViewer").src = file;
+document.getElementById("lessonTitle").innerHTML = title;
 
-function showResult(){
+// 🔥 connect quiz to lesson
+document.getElementById("quizLink").href = 
+"quiz.html?lesson=" + title;
 
-document.getElementById("result").innerHTML =
-"Your Score: " + score + " / 5";
-
-}
 
 </script>
 
