@@ -48,20 +48,65 @@ color:green;
 
 <script>
 
-<script>
+let score = 0;
 
 let params = new URLSearchParams(window.location.search);
+let lesson = params.get("lesson");
 
-let file = params.get("file");
-let title = params.get("title");
+window.onload = function(){
 
-document.getElementById("pdfViewer").src = file;
-document.getElementById("lessonTitle").innerHTML = title;
+// Lesson 1 Quiz
+if(lesson === "Concept of ICT"){
 
-// 🔥 connect quiz to lesson
-document.getElementById("quizLink").href = 
-"quiz.html?lesson=" + title;
+document.getElementById("quizTitle").innerHTML = "Lesson 1 Quiz";
 
+document.getElementById("quiz").innerHTML = `
+
+<h3>1. What does ICT stand for?</h3>
+<button onclick="answer('A','B')">Information Computer Technology</button>
+<button onclick="answer('B','B')">Information and Communication Technology</button>
+
+<h3>2. Which is NOT ICT component?</h3>
+<button onclick="answer('A','C')">Hardware</button>
+<button onclick="answer('B','C')">Software</button>
+<button onclick="answer('C','C')">Weather</button>
+
+`;
+}
+
+// Lesson 2 Quiz
+else if(lesson === "Computer System"){
+
+document.getElementById("quizTitle").innerHTML = "Lesson 2 Quiz";
+
+document.getElementById("quiz").innerHTML = `
+
+<h3>1. What is hardware?</h3>
+<button onclick="answer('A','A')">Physical parts</button>
+<button onclick="answer('B','A')">Software</button>
+
+<h3>2. CPU stands for?</h3>
+<button onclick="answer('A','B')">Central Program Unit</button>
+<button onclick="answer('B','B')">Central Processing Unit</button>
+
+`;
+}
+
+}
+
+function answer(selected,correct){
+if(selected===correct){
+score++;
+alert("Correct ✅");
+}else{
+alert("Wrong ❌");
+}
+}
+
+function showResult(){
+document.getElementById("result").innerHTML =
+"Your Score: " + score;
+}
 
 </script>
 
@@ -69,35 +114,11 @@ document.getElementById("quizLink").href =
 
 <body>
 
-<h1>🧠 Lesson 1 Quiz – Concept of ICT</h1>
+<h1 id="quizTitle">Quiz</h1>
 
 <div class="quiz-box">
 
-<h3>1. What does ICT stand for?</h3>
-<button onclick="answer('A','B')">Information Computer Technology</button>
-<button onclick="answer('B','B')">Information and Communication Technology</button>
-<button onclick="answer('C','B')">Integrated Communication Tool</button>
-
-<h3>2. Which is NOT a component of ICT?</h3>
-<button onclick="answer('A','D')">Hardware</button>
-<button onclick="answer('B','D')">Software</button>
-<button onclick="answer('C','D')">Data</button>
-<button onclick="answer('D','D')">Weather</button>
-
-<h3>3. Which device is hardware?</h3>
-<button onclick="answer('A','A')">Keyboard</button>
-<button onclick="answer('B','A')">Windows</button>
-<button onclick="answer('C','A')">MS Word</button>
-
-<h3>4. ICT is used in:</h3>
-<button onclick="answer('A','C')">Education</button>
-<button onclick="answer('B','C')">Banking</button>
-<button onclick="answer('C','C')">All of the above</button>
-
-<h3>5. Which is an advantage of ICT?</h3>
-<button onclick="answer('A','A')">Fast communication</button>
-<button onclick="answer('B','A')">High cost</button>
-<button onclick="answer('C','A')">Security risk</button>
+<div id="quiz"></div>
 
 <button onclick="showResult()">📊 Show Result</button>
 
