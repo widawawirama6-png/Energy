@@ -71,7 +71,13 @@ let title = params.get("title");
 document.getElementById("pdfViewer").src = file;
 document.getElementById("lessonTitle").innerHTML = title;
 
-</script>
+// 🔥 connect quiz to lesson
+document.getElementById("quizLink").href = 
+"quiz.html?lesson=" + title;
+
+</script
+
+
 
 </body>
 </html>
