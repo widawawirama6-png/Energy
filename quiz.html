@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ICT Quiz</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#0b2a4a;
+color:white;
+text-align:center;
+}
+
+.quiz-box{
+background:white;
+color:black;
+width:60%;
+margin:40px auto;
+padding:20px;
+border-radius:8px;
+}
+
+button{
+display:block;
+width:70%;
+margin:10px auto;
+padding:10px;
+font-size:16px;
+border:none;
+border-radius:6px;
+background:#3498db;
+color:white;
+cursor:pointer;
+}
+
+button:hover{
+background:#2980b9;
+}
+
+.result{
+font-size:20px;
+margin-top:20px;
+color:green;
+}
+
+</style>
+
+<script>
+
+let score=0;
+
+function answer(selected,correct){
+
+if(selected===correct){
+score++;
+alert("Correct ✅");
+}else{
+alert("Wrong ❌");
+}
+
+}
+
+function showResult(){
+
+document.getElementById("result").innerHTML =
+"Your Score: " + score + " / 5";
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h1>🧠 Lesson 1 Quiz – Concept of ICT</h1>
+
+<div class="quiz-box">
+
+<h3>1. What does ICT stand for?</h3>
+<button onclick="answer('A','B')">Information Computer Technology</button>
+<button onclick="answer('B','B')">Information and Communication Technology</button>
+<button onclick="answer('C','B')">Integrated Communication Tool</button>
+
+<h3>2. Which is NOT a component of ICT?</h3>
+<button onclick="answer('A','D')">Hardware</button>
+<button onclick="answer('B','D')">Software</button>
+<button onclick="answer('C','D')">Data</button>
+<button onclick="answer('D','D')">Weather</button>
+
+<h3>3. Which device is hardware?</h3>
+<button onclick="answer('A','A')">Keyboard</button>
+<button onclick="answer('B','A')">Windows</button>
+<button onclick="answer('C','A')">MS Word</button>
+
+<h3>4. ICT is used in:</h3>
+<button onclick="answer('A','C')">Education</button>
+<button onclick="answer('B','C')">Banking</button>
+<button onclick="answer('C','C')">All of the above</button>
+
+<h3>5. Which is an advantage of ICT?</h3>
+<button onclick="answer('A','A')">Fast communication</button>
+<button onclick="answer('B','A')">High cost</button>
+<button onclick="answer('C','A')">Security risk</button>
+
+<button onclick="showResult()">📊 Show Result</button>
+
+<p id="result" class="result"></p>
+
+</div>
+
+</body>
+</html>
